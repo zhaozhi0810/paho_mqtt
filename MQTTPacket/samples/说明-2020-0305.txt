@@ -1,0 +1,30 @@
+
+2020-03-05 已经通过百度的测试了
+
+paho.mqtt.embedded-c-master\MQTTPacket\samples
+
+	pub0sub1.c 可以实现循环定时发布消息 （这个文件中被注释的部分是订阅消息的部分）
+
+	qos0pub.c  可以实现一次发布消息，使用的时候通过命令行参数（第二个），发布转发的消息
+
+
+
+paho.mqtt.embedded-c-master\MQTTClient-C\samples\linux
+
+	stdoutsub.c 可以实现消息订阅。
+
+
+主要修改的部分
+	char *host = "14.215.190.20";   这是百度云物联网的ip （通过它提供的，ping一下就可以看到）
+	端口号基本都是1883 不用改
+
+	data.username.cstring = "wve4biu/user2";      //用户名和密码，这是百度物联网网站上得到的。
+	data.password.cstring = "UI7rxtuHvVroSjq7";   
+
+	data.clientID.cstring = "me";   //这是客户端的ID，为了让服务器区分是哪个终端，最好每个终端的名字不相同
+				//可以任意字符组合
+	data.cleansession = 1;      //这个跟协议有关，设置为1，表示客户端重新连接的时候，建立新的会话
+                                                        //设置为0，是表示服务器需要恢复为原来的会话设置。我没有试过。
+	
+
+

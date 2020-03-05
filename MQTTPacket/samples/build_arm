@@ -1,0 +1,6 @@
+arm-none-linux-gnueabi-gcc -Wall -c transport.c -Os -s
+arm-none-linux-gnueabi-gcc qos0pub.c transport.o -I ../src ../src/MQTTConnectClient.c ../src/MQTTSerializePublish.c ../src/MQTTPacket.c -o qos0pub_arm -Os -s
+
+arm-none-linux-gnueabi-gcc pub0sub1.c transport.o -I ../src ../src/MQTTConnectClient.c ../src/MQTTSerializePublish.c ../src/MQTTPacket.c ../src/MQTTSubscribeClient.c -o pub0sub1_arm ../src/MQTTDeserializePublish.c -Os -s ../src/MQTTConnectServer.c ../src/MQTTSubscribeServer.c ../src/MQTTUnsubscribeServer.c ../src/MQTTUnsubscribeClient.c 
+arm-none-linux-gnueabi-gcc pub0sub1_nb.c transport.o -I ../src ../src/MQTTConnectClient.c ../src/MQTTSerializePublish.c ../src/MQTTPacket.c ../src/MQTTSubscribeClient.c -o pub0sub1_nb_arm ../src/MQTTDeserializePublish.c -Os -s ../src/MQTTConnectServer.c ../src/MQTTSubscribeServer.c ../src/MQTTUnsubscribeServer.c ../src/MQTTUnsubscribeClient.c 
+
